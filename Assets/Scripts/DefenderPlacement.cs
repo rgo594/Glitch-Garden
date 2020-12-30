@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class DefenderPlacement : MonoBehaviour
 {
-    [SerializeField] GameObject defender;
+    Defender defender;
 
     // Update is called once per frame
     private void OnMouseDown()
     {
         SpawnDefender(GetSquareClicked());
+    }
+
+    public void SetSelectedDefender(Defender defenderToSelect)
+    {
+        defender = defenderToSelect;
     }
 
     private Vector2 GetSquareClicked()
@@ -29,6 +34,6 @@ public class DefenderPlacement : MonoBehaviour
 
     private void SpawnDefender(Vector2 roundedPos)
     {
-        GameObject newDefender = Instantiate(defender, roundedPos, Quaternion.identity) as GameObject;
+        Defender newDefender = Instantiate(defender, roundedPos, Quaternion.identity) as Defender;
     }
 }
