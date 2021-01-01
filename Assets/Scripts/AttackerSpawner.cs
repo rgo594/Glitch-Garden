@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttackerSpawner : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class AttackerSpawner : MonoBehaviour
     }
     IEnumerator Start()
     {
-        while (spawn)
+        while (spawn && FindObjectOfType<Slider>().value != 1)
         {
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
             SpawnAttacker();

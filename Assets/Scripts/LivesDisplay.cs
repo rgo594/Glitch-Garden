@@ -13,13 +13,13 @@ public class LivesDisplay : MonoBehaviour
         GetComponent<Text>().text = lifeCount.ToString();
         if (lifeCount <= 0)
         {
-            StartCoroutine(LoadGameOver());
+            StartCoroutine(FindObjectOfType<SceneLoader>().LoadGameOver());
         }
     }
 
-    IEnumerator LoadGameOver()
+/*    IEnumerator LoadGameOver()
     {
         yield return new WaitForSeconds(2f);
-        FindObjectOfType<SceneLoader>().LoadNextScene();
-    }
+        FindObjectOfType<SceneLoader>().LoadGameOver();
+    }*/
 }

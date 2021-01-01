@@ -11,7 +11,6 @@ public class Shooter : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        Debug.Log("defender position is" + transform.position);
         SetLaneSpawner();
     }
 

@@ -20,6 +20,13 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(scene.buildIndex + 1);
     }
 
+    public IEnumerator LoadGameOver()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(4);
+    }
+
     IEnumerator LoadStartScreen()
     {
         yield return new WaitForSeconds(4);
