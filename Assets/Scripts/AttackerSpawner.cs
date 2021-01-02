@@ -30,6 +30,11 @@ public class AttackerSpawner : MonoBehaviour
         Spawn(attackersPrefab[attackerIndex]);
     }
 
+    public void StopSpawning()
+    {
+        spawn = false;
+    }
+
     private void Spawn(Attacker myAttacker)
     {
         Attacker newAttacker = Instantiate

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LivesDisplay : MonoBehaviour
 {
-    [SerializeField] int lifeCount = 3;
+    [SerializeField] public int lifeCount = 3;
     
     public void ModifyLifeCount(int lifeChange)
     {
@@ -13,13 +13,7 @@ public class LivesDisplay : MonoBehaviour
         GetComponent<Text>().text = lifeCount.ToString();
         if (lifeCount <= 0)
         {
-            StartCoroutine(FindObjectOfType<SceneLoader>().LoadGameOver());
+            FindObjectOfType<LevelController>().LoseScreen();
         }
     }
-
-/*    IEnumerator LoadGameOver()
-    {
-        yield return new WaitForSeconds(2f);
-        FindObjectOfType<SceneLoader>().LoadGameOver();
-    }*/
 }

@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         if (scene.buildIndex == 0)
         {
-            StartCoroutine(LoadStartScreen());
+            StartCoroutine(LoadStartScreenFromSplash());
         }
     }
     public void LoadNextScene()
@@ -27,9 +27,22 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
-    IEnumerator LoadStartScreen()
+    IEnumerator LoadStartScreenFromSplash()
     {
         yield return new WaitForSeconds(4);
         LoadNextScene();
+    }
+
+    public void LoadStartMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    } 
+
+    public void RestartScene()
+    {
+        Time.timeScale = 1;
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 }
