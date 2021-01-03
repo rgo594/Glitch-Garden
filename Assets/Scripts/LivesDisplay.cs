@@ -5,8 +5,14 @@ using UnityEngine.UI;
 
 public class LivesDisplay : MonoBehaviour
 {
-    [SerializeField] public int lifeCount = 3;
-    
+    [SerializeField] public float lifeCount = 3;
+
+    private void Start()
+    {
+        lifeCount = 11 - PlayerPrefsController.GetDifficulty();
+        GetComponent<Text>().text = lifeCount.ToString();
+    }
+
     public void ModifyLifeCount(int lifeChange)
     {
         lifeCount += lifeChange;

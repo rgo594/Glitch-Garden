@@ -8,15 +8,17 @@ public class AttackerSpawner : MonoBehaviour
     [SerializeField] bool spawn = true;
     [SerializeField] Attacker[] attackersPrefab;
     [SerializeField] float minDelay = 1f;
-    [SerializeField] float maxDelay = 5f;
+    [SerializeField] float maxDelay = 2f;
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetMaxDelay(float delay)
     {
-        //StartCoroutine(SpawnEnemies());
+        maxDelay = delay;
     }
+
     IEnumerator Start()
     {
+        maxDelay = maxDelay / PlayerPrefsController.GetDifficulty();
         while (spawn && FindObjectOfType<Slider>().value != 1)
         {
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));

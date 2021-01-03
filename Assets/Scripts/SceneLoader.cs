@@ -24,7 +24,7 @@ public class SceneLoader : MonoBehaviour
     {
         
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Game Over");
     }
 
     IEnumerator LoadStartScreenFromSplash()
@@ -38,6 +38,11 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     } 
+
+    public void LoadOptionsScene()
+    {
+        SceneManager.LoadScene(5);
+    }
 
     public void RestartScene()
     {
